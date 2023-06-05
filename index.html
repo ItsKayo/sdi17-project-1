@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/index.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="title">War</h1>
+        <div class="board">
+            <div class="computer">
+                <p>Computer:</p>
+            </div>
+            <div class="player">
+                <p>Player:</p>
+            </div>
+            <div class="buttons">
+                <button id ="newGame" onclick="window.location.reload()">Play Again</button>
+                <button id="newRound" onlick="playRound()">New Round</button>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
