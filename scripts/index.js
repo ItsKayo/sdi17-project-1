@@ -2,6 +2,15 @@ window.onload = () => playRound();
 
 const newRound = document.querySelector("#newRound");
 newRound.addEventListener("click", function () {
+    const compCards = document.querySelector(".computer")
+    const playerCards = document.querySelector(".player")
+
+    var compToDelete = compCards.getElementsByTagName('img');
+    compToDelete[0].parentNode.removeChild(compToDelete[0]);
+
+    var playerToDelete = playerCards.getElementsByTagName('img');
+    playerToDelete[0].parentNode.removeChild(playerToDelete[0]);
+
     playRound();
 })
 
@@ -15,8 +24,8 @@ async function playRound() {
     let computerCardValue = computerCard.cards[0].value;
     let playerCardValue = playerCard.cards[0].value;
 
-    const computermarkup = `<img src="${computerCard.cards[0].image}">`;
-    const playermarkup = `<img src="${playerCard.cards[0].image}">`;
+    const computermarkup = `<img class="compCards" src="${computerCard.cards[0].image}">`;
+    const playermarkup = `<img class="playerCards" src="${playerCard.cards[0].image}">`;
     document.querySelector('.computer').insertAdjacentHTML('beforeend', computermarkup);
     document.querySelector('.player').insertAdjacentHTML('beforeend', playermarkup);
 
