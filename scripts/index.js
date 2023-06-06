@@ -1,6 +1,11 @@
-window.onload = () => {playRound();}
+window.onload = () => playRound();
 
-async function playRound() { 
+const newRound = document.querySelector("#newRound");
+newRound.addEventListener("click", function () {
+    playRound();
+})
+
+async function playRound() {
     let deck = await getDeck();
     let deckID = deck.deck_id;
 
@@ -15,9 +20,7 @@ async function playRound() {
     document.querySelector('.computer').insertAdjacentHTML('beforeend', computermarkup);
     document.querySelector('.player').insertAdjacentHTML('beforeend', playermarkup);
 
-    let result = await evaluate(computerCardValue, playerCardValue, deckID);
-
-    return result;
+    await evaluate(computerCardValue, playerCardValue, deckID);
 }
 
 async function drawCard(deck_id) {
@@ -55,9 +58,6 @@ async function evaluate(computer, player, deck_id) {
         player = '14';
     }
 
-    console.log('Computer', +computer);
-    console.log('Player', +player);
-
     if (+computer == +player) {
         let computerCard = await drawCard(deck_id);
         let playerCard = await drawCard(deck_id);
@@ -71,8 +71,29 @@ async function evaluate(computer, player, deck_id) {
         evaluate (computer, player, deck_id);
     } else if (+computer > +player) {
         setTimeout(() => alert('Computer wins'), 1000);
+        updateComputerScore();
     }
     else {
         setTimeout(() => alert('Player wins'), 1000);
+        updateplayerScore()
     }
+}
+
+let computerScore = 0;
+let playerScore = 0;
+scoreContainer = document.getElementById("computerScore");
+scoreContainer.innerHTML = `Computer: ${computerScore}`;
+scoreContainer = document.getElementById("playerScore");
+scoreContainer.innerHTML = `Player: ${playerScore}`;
+
+function updateComputerScore() {
+    scoreContainer = document.getElementById("computerScore");
+    computerScore++;
+    scoreContainer.innerHTML = `Computer: ${computerScore}`;
+}
+
+function updateplayerScore() {
+    scoreContainer = document.getElementById("playerScore");
+    playerScore++;
+    scoreContainer.innerHTML = `Player: ${playerScore}`;
 }

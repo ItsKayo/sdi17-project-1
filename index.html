@@ -10,6 +10,11 @@
     <div class="wrapper">
         <h1 class="title">War</h1>
         <div class="board">
+            <div class="score">
+                <h3>Score</h3>
+                <p id="computerScore"></p>
+                <p id="playerScore"></p>
+            </div>
             <div class="computer">
                 <p>Computer:</p>
             </div>
@@ -17,8 +22,8 @@
                 <p>Player:</p>
             </div>
             <div class="buttons">
-                <button id ="newGame" onclick="window.location.reload()">Play Again</button>
-                <button id="newRound" onlick="playRound()">New Round</button>
+                <button class="playAgain" id ="newGame" onclick="window.location.reload()">Play Again</button>
+                <button class="playAgain" id="newRound">New Round</button>
             </div>
         </div>
     </div>
