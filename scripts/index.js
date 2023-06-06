@@ -70,12 +70,10 @@ async function evaluate(computer, player, deck_id) {
         document.querySelector('.player').insertAdjacentHTML('beforeend', playermarkup);
         evaluate (computer, player, deck_id);
     } else if (+computer > +player) {
-        setTimeout(() => alert('Computer wins'), 1000);
-        updateComputerScore();
+        setTimeout(() => updateComputerScore(), 500);
     }
     else {
-        setTimeout(() => alert('Player wins'), 1000);
-        updateplayerScore()
+        setTimeout(() => updateplayerScore(), 500);
     }
 }
 
